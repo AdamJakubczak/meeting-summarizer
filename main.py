@@ -8,7 +8,7 @@ from google.genai import types
 import time
 from prompts import system_prompt, finishing_prompt, html_template
 
-TRANSCRIPT_PATH = 'transcriptions/example.vtt'
+TRANSCRIPT_PATH = 'transcriptions/example.vtt' #Change to your transcript file path
 CONVERSATION_JSON_PATH = 'output/conversation.json'
 PRE_SUMMARY_MD_PATH = 'output/pre_summary.md'
 SUMMARY_MD_PATH = 'output/summary.md'
