@@ -52,7 +52,7 @@ def convert_md_to_pdf(md_path, pdf_path, wkhtmltopdf_path):
 
 def main():
     start_time = time.time()
-                
+            
     try:
         logger.info('📄 Loading transcript...')
         transcript = load_transcript(TRANSCRIPT_PATH)
