@@ -8,6 +8,7 @@ from google.genai import types
 import time
 from prompts import system_prompt, finishing_prompt, html_template
 
+LANGUAGE = 'Polish'  # Change to your desired language
 TRANSCRIPT_PATH = 'transcriptions/example.vtt' #Change to your transcript file path
 CONVERSATION_JSON_PATH = 'output/conversation.json'
 PRE_SUMMARY_MD_PATH = 'output/pre_summary.md'
@@ -67,12 +68,12 @@ def main():
         client = genai.Client()
 
         logger.info('📝 Generating initial summary...')
-        response = generate_content(client, system_prompt, conversation_json)
+        response = generate_content(client, system_prompt.format(language=LANGUAGE), conversation_json)
         save_text(response.text, PRE_SUMMARY_MD_PATH)
 
         logger.info('✨ Refining summary...')
         summary_text = load_transcript(PRE_SUMMARY_MD_PATH)
-        finishing_response = generate_content(client, finishing_prompt, summary_text)
+        finishing_response = generate_content(client, finishing_prompt.format(language=LANGUAGE), summary_text)
         save_text(finishing_response.text, SUMMARY_MD_PATH)
 
         logger.info('📑 Converting markdown to PDF...')
