@@ -12,19 +12,18 @@ Your task is to summarize meeting transcripts.
 8. Always follow this structure exactly translating headings to {language}, without additional text:
     ## Summary of each participant's contribution
     ## Key points
-    - point1
-    - point2
-    - and so on...
+    list of key points in bullet points
     ## Meeting summary
     ## Action items
     **Person**
-    - task1
-    - task2
-    - and so on...
+    list of tasks in bullet points
 </rules>
 """
 
 finishing_prompt = """
+You role is to refine the initial summary of a meeting transcript.
+
+<rules>
 Rewrite the following summary to make it shorter, clearer, and more concise:
 - maximum 2–3 sentences per participant,
 - maximum 5 bullet points in “Punkty kluczowe”,
@@ -34,15 +33,12 @@ Rewrite the following summary to make it shorter, clearer, and more concise:
 - ensure this markdown formatting is maintained and translated to {language}:
     ## Summary of each participant's contribution
     ## Key points
-    - point1
-    - point2
-    - and so on...
+        list of key points in bullet points
     ## Meeting summary
     ## Action items
     **Person**
-    - task1
-    - task2
-    - and so on...
+        list of tasks in bullet points
+</rules>
 """
 
 html_template = """
